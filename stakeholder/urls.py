@@ -10,10 +10,10 @@ urlpatterns = [
     url(r'^(?P<stakeholder_slug>[\w-]+)$', views.stakeholder_read, name='stakeholder_read'),
 
 
-    url(r'^list', views.cluster_list, name='cluster_list'),
-    url(r'^create', views.cluster_create, name='cluster_create'),
-    url(r'^(?P<cluster_slug>[\w-]+)/update$', views.cluster_update, name='cluster_update'),
-    url(r'^(?P<cluster_slug>[\w-]+)$', views.cluster_read, name='cluster_read'),
+    url(r'^cluster/list', views.cluster_list, name='cluster_list'),
+    url(r'^cluster/create', views.cluster_create, name='cluster_create'),
+    url(r'^cluster/(?P<cluster_slug>[\w-]+)/update$', views.cluster_update, name='cluster_update'),
+    url(r'^cluster/(?P<cluster_slug>[\w-]+)$', views.cluster_read, name='cluster_read'),
 
     url(r'^entity/list', views.entity_list, name='entity_list'),
     url(r'^entity/create', views.entity_create, name='entity_create'),

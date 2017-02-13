@@ -1,7 +1,7 @@
 <style>
 .header {
 	padding: 80px;
-	padding-top: 110px;
+	padding-top: 100px;
 	color: white;
 	background-color: {{stakeholder_map.hex_color}};
 }
@@ -26,39 +26,60 @@
 a {color: {{stakeholder_map.hex_color}};}
 </style>
 
-<div class="header animated slideInDown">
-	<h1>{{ stakeholder_map.name }}</h1>
+
+<div class="header" style="-webkit-box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);
+-moz-box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);
+box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);">
+<div class="row">
+<div class="col-md-1" >
+<img src="https://68.media.tumblr.com/795d8fe5ae819ee5be8ddce8633324d3/tumblr_olbcyfVcCd1u8c9zqo1_540.png" class="img-responsive" style="margin-top: 30px;">
+</div>
+<div class="col-md-11">
+
+	<h1><b>{{ stakeholder_map.name }}</b></h1>
 	<h4><b>{{ stakeholder_map.tagline }}</b></h4>
 
 	/s/smap/{{ stakeholder_map.slug }}<br />
 	<br />
 	{% if stakeholder_map.website %}{{ stakeholder_map.website }}<br />{% endif %}
+	<br /><br />
+</div>
 
-<div class="animated slideInLeft">
-	<a href="{% url 'stakeholder_map_update' stakeholder_map_slug=stakeholder_map.slug %}" class="btn btn-header">
+
+	<a href="{% url 'stakeholder_create' %}" class="btn btn-header animated slideInLeft" style="animation-delay: 0.6s;">
+		<i class="material-icons md-header ">settings_remote</i><br />
+		<b>Remote</b>
+	</a>
+
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.5s;" href="#modal-stakeholder-map-create" role="button" class="btn" data-toggle="modal">
 		<i class="material-icons md-header">settings_input_component</i><br />
 		<b>Update Map</b>
 	</a>
 
-	<a href="{% url 'stakeholder_create' %}" class="btn btn-header">
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.4s;" href="#modal-stakeholder-create" role="button" class="btn" data-toggle="modal">
 		<i class="material-icons md-header ">person_add</i><br />
 		<b>Stakeholder</b>
 	</a>
 
-	<a href="{% url 'assumption_create' %}" class="btn btn-header">
-		<i class="material-icons md-header ">playlist_add</i><br />
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.3s;" href="#modal-assumption-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header">playlist_add</i><br />
 		<b>Assumption</b>
 	</a>
 
-	<a href="{% url 'cluster_create' %}" class="btn btn-header">
+	<a class="btn btn-header  animated slideInLeft" style="animation-delay: 0.2s;" href="#modal-cluster-create" role="button" class="btn" data-toggle="modal">
 		<i class="material-icons md-header ">bubble_chart</i><br />
 		<b>Cluster</b>
 	</a>
 
-	<a href="{% url 'entity_create' %}" class="btn btn-header">
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.1s;" href="#modal-entity-create" role="button" class="btn" data-toggle="modal">
 		<i class="material-icons md-header ">more</i><br />
-		<b>Entities</b>
+		<b>Entity</b>
 	</a>
 	</div>
+
 </div>
 </div>
+
+
+

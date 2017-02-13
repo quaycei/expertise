@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 <!-- Google Web Icon Font -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -23,9 +23,10 @@
 
 * {font-family: 'Karla', sans-serif;}
 
-nav { 
+nav {
+	background-color: rgba(0,0,0,0.2);
 	color: white;
-	padding: 30px;
+	padding: 20px;
 	width: 100%;
 }
 
@@ -46,10 +47,38 @@ nav {
 	height: 150px;
 }
 
+input[type="text"] { 
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #c7c7c7;
+	width: 90%;
 
 
+}
+
+.form-description { 
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #c7c7c7;
+	width: 90%;
 
 
+}
+
+ { 
+		padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid orange;
+	width: 90%;
+
+}
+
+.shadow {-webkit-box-shadow: 0px 0px 46px -2px rgba(0,0,0,0.49);
+-moz-box-shadow: 0px 0px 46px -2px rgba(0,0,0,0.49);
+box-shadow: 0px 0px 46px -2px rgba(0,0,0,0.49);}
 
 .col-white {color:white;}
 .inline {display: inline;}
@@ -60,14 +89,23 @@ nav {
 
 
 <!-- BODY -->
-<body>
-<nav class="navbar-fixed-top animated fadeInLeft">
+
+<nav class="navbar-fixed-top animated zoomInDown">
 	<a href="{% url 'stakeholder_splash' %}">
-		<img src="https://www.hermitagemuseum.org/statictest/img/btnIBM.png" class="img-responsive" style="height: 30px; margin-bottom: 5px;">
+		<img src="https://www.hermitagemuseum.org/statictest/img/btnIBM.png" class="img-responsive" style="height: 20px; margin-bottom: 5px; display: inline; margin-right: 15px;">
 		<h4 class="col-white inline">Design Thinking Platform</h4>
 	</a>
 </nav>
+<body>
 {% block content %}
 {% endblock %}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 

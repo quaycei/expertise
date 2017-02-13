@@ -2,7 +2,90 @@
 
 {% block content %}
 
+<style>
+.header {
+	padding: 80px;
+	padding-top: 100px;
+	color: white;
+	background-color: #FF8F00;
+}
+
+.btn-header {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 3px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 8px;
+
+}
+
+.md-header {
+	font-size: 3em;
+
+}
+
+
+a {color: #FF8F00;}
+</style>
+
+
+<div class="header animated slideInLeft" style="-webkit-box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);
+-moz-box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);
+box-shadow: 0px 10px 46px -2px rgba(0,0,0,0.49);">
+<div class="row">
+<div class="col-md-1" >
+<img src="https://68.media.tumblr.com/795d8fe5ae819ee5be8ddce8633324d3/tumblr_olbcyfVcCd1u8c9zqo1_540.png" class="img-responsive" style="margin-top: 30px;">
+</div>
+<div class="col-md-11">
+
+	<h1><b>Stakeholder Map</b></h1>
+	<h4><b>WHEN YOU MIGHT USE THIS</b><br /><br />If you're intergrating new team members, starting a new project, exploring a new market, or expanding an offering, this activity helps you identify project stakeholders, their expectations, and relationships.</h4>
+
+	/s/smap/{{ stakeholder_map.slug }}<br />
+	<br />
+	{% if stakeholder_map.website %}{{ stakeholder_map.website }}<br />{% endif %}
+	<br /><br />
+</div>
+
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.5s;" href="#modal-stakeholder-map-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header">play_circle_outline</i><br />
+		<b>Start Map</b>
+	</a>
+
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.4s;" href="#modal-stakeholder-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">person_add</i><br />
+		<b>Stakeholder</b>
+	</a>
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.3s;" href="#modal-assumption-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header">playlist_add</i><br />
+		<b>Assumption</b>
+	</a>
+
+	<a class="btn btn-header  animated slideInLeft" style="animation-delay: 0.2s;" href="#modal-cluster-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">bubble_chart</i><br />
+		<b>Cluster</b>
+	</a>
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.1s;" href="#modal-entity-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">more</i><br />
+		<b>Entity</b>
+	</a>
+	</div>
+
+</div>
+</div>
+
 {% include 'stakeholder_map/kit/list.html' %}
+
+
+
+
+
 
 
 

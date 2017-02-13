@@ -6,6 +6,7 @@ from stakeholder.forms import ClusterForm, EntityForm, StakeholderForm, Assumpti
 
 
 def stakeholder_splash(request):
+    stakeholder_mapform = Stakeholder_MapForm()
     stakeholders = Stakeholder.objects.all()
     entitys = Entity.objects.all()
     assumptions = Assumption.objects.all()
@@ -13,6 +14,7 @@ def stakeholder_splash(request):
     stakeholder_maps = Stakeholder_Map.objects.all()
 
     return render(request, 'stakeholder_splash.html', {
+            'stakeholder_mapform':stakeholder_mapform,
             'stakeholders':stakeholders,
             'entitys':entitys,
             'assumptions':assumptions,
@@ -39,7 +41,7 @@ def cluster_create(request):
             cluster.creator = request.user
             cluster.save()
             clusterform.save_m2m()
-            return redirect(stakeholder_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'cluster/create.html',{
             'clusterform':clusterform
@@ -88,10 +90,10 @@ def entity_create(request):
             entity.creator = request.user
             entity.save()
             entityform.save_m2m()
-            return redirect(stakeholder_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'entity/create.html',{
-            'entityform':entityform
+            'entityform':entityform,
         })
 
 
@@ -138,7 +140,7 @@ def stakeholder_create(request):
             stakeholder.creator = request.user
             stakeholder.save()
             stakeholderform.save_m2m()
-            return redirect(stakeholder_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'stakeholder/create.html',{
             'stakeholderform':stakeholderform
@@ -184,7 +186,7 @@ def assumption_create(request):
             assumption.creator = request.user
             assumption.save()
             assumptionform.save_m2m()
-            return redirect(assumption_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'assumption/create.html',{
             'assumptionform':assumptionform
@@ -199,7 +201,7 @@ def assumption_update(request, assumption_slug):
         assumptionform = AssumptionForm(request.POST, instance=assumption)
         if assumptionform.is_valid():
             assumption = assumptionform.save()
-            return redirect(stakeholder_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'assumption/create.html',{
             'assumptionform':assumptionform, 'assumption':assumption
@@ -232,7 +234,7 @@ def stakeholder_map_create(request):
             stakeholder_map.creator = request.user
             stakeholder_map.save()
             stakeholder_mapform.save_m2m()
-            return redirect(stakeholder_splash)
+            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'stakeholder_map/create.html',{
             'stakeholder_mapform':stakeholder_mapform
@@ -260,6 +262,12 @@ def stakeholder_map_read(request, stakeholder_map_slug):
     entitys = Entity.objects.filter(stakeholder_map=stakeholder_map)
     assumptions = Assumption.objects.filter(stakeholder_map=stakeholder_map)
     clusters = Cluster.objects.filter(stakeholder_map=stakeholder_map)
+    stakeholderform = StakeholderForm()
+    assumptionform = AssumptionForm()
+    clusterform = ClusterForm()
+    entityform = EntityForm()
+    stakeholder_mapform = Stakeholder_MapForm()
+    
 
     return render(request, 'stakeholder_map/read.html', {
             'stakeholder_map':stakeholder_map,
@@ -267,6 +275,12 @@ def stakeholder_map_read(request, stakeholder_map_slug):
             'entitys':entitys,
             'assumptions':assumptions,
             'clusters':clusters,
+            'stakeholderform':stakeholderform,
+            'assumptionform':assumptionform,
+            'clusterform':clusterform,
+            'entityform':entityform,
+            'stakeholder_mapform':stakeholder_mapform,
+
         })
 
 
