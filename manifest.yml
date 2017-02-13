@@ -1,0 +1,12 @@
+applications:
+- name: expertise
+memory: 256M
+command: bash ./run.sh
+buildpack: https://github.com/cloudfoundry/python-buildpack
+path: .
+declared-services:
+  mypostgres:
+    label: postgresql
+    plan: 100
+services:
+  - mypostgres

@@ -1,0 +1,25 @@
+<div class="section-grey animated fadeInDown">
+
+	<div class="container">
+		<div class="row">
+			
+				<b class=" caps-title">Stakeholders</b><br /><br />
+
+				<div class="row">
+					{% for stakeholder in stakeholders %}
+					<div class="col-sm-6 col-md-4 col-lg-3">
+						<div class="stakeholder animated slideInRight">
+							<a href="{% url 'stakeholder_read' stakeholder_slug=stakeholder.slug %}"><b>{{ stakeholder.name }}</b></a><br />
+							<i>{{ stakeholder.entity}}</i><br />
+							{% if stakeholder.tagline %}{{ stakeholder.tagline }}<br />{% endif %}
+						</div>
+					</div>
+					{% endfor %}
+<div class="col-xs-12">
+					<a href="{% url 'stakeholder_create' %}"><b>Add Stakeholder</b></a>
+					<br /><br />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

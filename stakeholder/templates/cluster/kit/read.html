@@ -1,0 +1,10 @@
+<h1>{{ cluster.name }}</h1><br />
+{% if cluster.tagline %}{{ cluster.tagline }}<br />{% endif %}
+
+<i>/{{ cluster.slug }}</i><br />
+
+{% if cluster.description %}<b>ABOUT</b><br />{{ cluster.description}}<br /><br />{% endif %}
+
+
+<br />
+<a href="{% url 'cluster_update' cluster_slug=cluster.slug %}">Update cluster</a>

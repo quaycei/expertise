@@ -1,0 +1,64 @@
+<style>
+.header {
+	padding: 80px;
+	padding-top: 110px;
+	color: white;
+	background-color: {{stakeholder_map.hex_color}};
+}
+
+.btn-header {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 3px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 8px;
+
+}
+
+.md-header {
+	font-size: 3em;
+
+}
+
+
+a {color: {{stakeholder_map.hex_color}};}
+</style>
+
+<div class="header animated slideInDown">
+	<h1>{{ stakeholder_map.name }}</h1>
+	<h4><b>{{ stakeholder_map.tagline }}</b></h4>
+
+	/s/smap/{{ stakeholder_map.slug }}<br />
+	<br />
+	{% if stakeholder_map.website %}{{ stakeholder_map.website }}<br />{% endif %}
+
+<div class="animated slideInLeft">
+	<a href="{% url 'stakeholder_map_update' stakeholder_map_slug=stakeholder_map.slug %}" class="btn btn-header">
+		<i class="material-icons md-header">settings_input_component</i><br />
+		<b>Update Map</b>
+	</a>
+
+	<a href="{% url 'stakeholder_create' %}" class="btn btn-header">
+		<i class="material-icons md-header ">person_add</i><br />
+		<b>Stakeholder</b>
+	</a>
+
+	<a href="{% url 'assumption_create' %}" class="btn btn-header">
+		<i class="material-icons md-header ">playlist_add</i><br />
+		<b>Assumption</b>
+	</a>
+
+	<a href="{% url 'cluster_create' %}" class="btn btn-header">
+		<i class="material-icons md-header ">bubble_chart</i><br />
+		<b>Cluster</b>
+	</a>
+
+	<a href="{% url 'entity_create' %}" class="btn btn-header">
+		<i class="material-icons md-header ">more</i><br />
+		<b>Entities</b>
+	</a>
+	</div>
+</div>
+</div>

@@ -1,0 +1,73 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Google Web Icon Font -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+</head>
+
+
+<!-- CSS -->
+<style>
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+
+* {font-family: 'Karla', sans-serif;}
+
+nav { 
+	color: white;
+	padding: 30px;
+	width: 100%;
+}
+
+.section-grey {
+	background-color: #e1e1e1;
+	padding: 40px;
+}
+
+.section-white {
+	background-color: white;
+	padding: 40px;
+}
+
+.stakeholder {
+	padding: 30px;
+	background-color: white;
+	margin-bottom: 20px;
+	height: 150px;
+}
+
+
+
+
+
+
+.col-white {color:white;}
+.inline {display: inline;}
+.caps-title { text-transform: uppercase; }
+</style>
+
+
+
+
+<!-- BODY -->
+<body>
+<nav class="navbar-fixed-top animated fadeInLeft">
+	<a href="{% url 'stakeholder_splash' %}">
+		<img src="https://www.hermitagemuseum.org/statictest/img/btnIBM.png" class="img-responsive" style="height: 30px; margin-bottom: 5px;">
+		<h4 class="col-white inline">Design Thinking Platform</h4>
+	</a>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+

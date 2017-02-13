@@ -1,0 +1,32 @@
+{% load widget_tweaks %}
+<b>
+{% if stakeholder_map.slug %}Edit {{ stakeholder_map.name }}
+{% else %}Add an Stakeholder Map {% endif %}
+</b>
+<br />
+<br />
+<form action="{% url 'stakeholder_map_create' %}" method="post">
+{% csrf_token %}
+{% render_field stakeholder_mapform.name placeholder="Name" %}<br />
+{% render_field stakeholder_mapform.tagline placeholder="Tagline" %}<br />
+{% if stakeholder_map.slug%}{{stakeholder_map.slug}}{%else%}
+{% render_field stakeholder_mapform.slug placeholder="Hashtag" %}{% endif %}<br />
+{% render_field stakeholder_mapform.description placeholder="Description" %}<br />
+{% render_field stakeholder_mapform.hex_color placeholder="#C700E9" %}<br />
+
+<br />
+
+<b>Add Stakeholders</b><br />
+{% render_field stakeholder_mapform.stakeholders %}<br /><br />
+
+<b>Add Entities</b><br />
+{% render_field stakeholder_mapform.entitys %}<br /><br />
+
+<b>Add Clusters</b><br />
+{% render_field stakeholder_mapform.clusters %}<br /><br />
+
+<b>Add Assumptions</b><br />
+{% render_field stakeholder_mapform.assumptions %}<br /><br />
+
+<input type="submit" value="Save"/>
+</form>

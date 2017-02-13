@@ -1,0 +1,20 @@
+{% load widget_tweaks %}
+<b>
+{% if entity.slug %}Edit {{ entity.name }}
+{% else %}Add an Entity {% endif %}
+</b>
+<br />
+<br />
+<form action="{% url 'entity_create' %}" method="post">
+{% csrf_token %}
+{% render_field entityform.name placeholder="Name" %}<br />
+{% if entity.slug%}{{entity.slug}}{%else%}
+{% render_field entityform.slug placeholder="Hashtag" %}{% endif %}<br />
+{% render_field entityform.description placeholder="Description" %}<br />
+<br />
+
+<b>Add to Clusters</b><br />
+{% render_field entityform.clusters %}<br /><br />
+
+<input type="submit" value="Save"/>
+</form>

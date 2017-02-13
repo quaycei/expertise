@@ -1,0 +1,12 @@
+<h2>Stakeholder Maps</h2>
+
+
+{% for stakeholder_map in stakeholder_maps %}
+<a href="{% url 'stakeholder_map_read' stakeholder_map_slug=stakeholder_map.slug %}"><b>{{ stakeholder_map.name }}</b></a><br />
+/stakeholder_map/{{ stakeholder_map.slug }}<br />
+{{ stakeholder_map.description}}
+<br /><br />
+{% endfor %}
+
+<a href="{% url 'stakeholder_map_create' %}">Add Stakeholder Map</a>
+<br /><br />

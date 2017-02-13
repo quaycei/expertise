@@ -1,0 +1,38 @@
+<style>
+.assumption {
+	padding: 30px;
+	margin-bottom: 20px;
+	height: 150px;
+	color: white;
+	background-color: {{ stakeholder_map.hex_color }};
+}
+
+</style>
+
+<div class="section-white">
+
+	<div class="container">
+		<div class="row">
+			
+				<b class=" caps-title">Assumptions</b><br /><br />
+
+				<div class="row">
+					{% for assumption in assumptions %}
+					<div class="col-md-6 col-lg-4">
+						<div class="assumption">
+<a href="{% url 'assumption_read' assumption_slug=assumption.slug %}"><b>{{ assumption.name }}</b></a><br />
+{% if assumption.tagline %}{{ assumption.tagline }}<br />{% endif %}
+{% if assumption.proven %}<b>PROVEN</b>{% else %}<b>UNPROVEN</b>{% endif %}
+
+</div>
+</div>
+{% endfor %}
+
+<div class="col-xs-12">
+<a href="{% url 'assumption_create' %}"><b>Add Assumption</b></a>
+<br /><br />
+</div>
+
+</div>
+</div>
+</div>

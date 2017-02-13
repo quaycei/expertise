@@ -1,0 +1,20 @@
+<h1>{{ stakeholder.name }}</h1><br />
+{% if stakeholder.tagline %}{{ stakeholder.tagline }}<br />{% endif %}
+
+<i>/{{ stakeholder.slug }}</i><br />
+{% if stakeholder.website %}{{ stakeholder.website}}<br />{% endif %}<br />
+
+{% if stakeholder.description %}<b>ABOUT</b><br />{{ stakeholder.description}}<br /><br />{% endif %}
+
+<b>CONTACT</b><br />
+{% if stakeholder.email_address %}{{ stakeholder.email_address }}<br />{% endif %}
+{% if stakeholder.phone_number %}{{ stakeholder.phone_number}}<br />{% endif %}
+
+<br />
+<a href="{% url 'stakeholder_update' stakeholder_slug=stakeholder.slug %}">Update Stakeholder</a>
+<br />
+<br />
+<hr>
+<br />
+<br />
+

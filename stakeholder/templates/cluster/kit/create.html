@@ -1,0 +1,23 @@
+{% load widget_tweaks %}
+
+<h1>
+{% if cluster.slug %}Edit {{ cluster.name }}
+{% else %}Add an Cluster{% endif %}
+</h1>
+
+<form action="{% url 'cluster_create' %}" method="post">
+{% csrf_token %}
+
+{% render_field clusterform.name placeholder="Name" %}<br />
+
+{% render_field clusterform.tagline placeholder="Tagline" %}<br />
+
+{% if cluster.slug%}{{cluster.slug}}{%else%}
+{% render_field clusterform.slug placeholder="Hashtag" %}{% endif %}<br /><br />
+
+{% render_field clusterform.description placeholder="Description" %}<br />
+
+
+
+<input type="submit" value="Save"/>
+</form>

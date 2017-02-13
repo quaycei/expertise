@@ -1,0 +1,12 @@
+<h2>Entity List</h2>
+
+
+{% for entity in entitys %}
+<a href="{% url 'entity_read' entity_slug=entity.slug %}"><b>{{ entity.name }}</b></a><br />
+/entity/{{ entity.slug }}<br />
+{{ entity.description}}
+<br /><br />
+{% endfor %}
+
+<a href="{% url 'entity_create' %}">Add Entity</a>
+<br /><br />
