@@ -36,11 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
+    'django_slack_oauth',
+    'django_slack',
     'widget_tweaks',
     'bootstrap3',
     'study',
     'stakeholder',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +79,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'expertise.wsgi.application'
+
+
+SLACK_CLIENT_ID = '141726785430.140368206881'
+SLACK_CLIENT_SECRET = 'bcbc244c6fedb3f87cbe84fac8b3aa89'
+SLACK_SCOPE = 'identify,client,admin'
+
+SLACK_PIPELINES = [
+    'expertise.pipelines.register_user',
+]
+
 
 
 # Database
@@ -114,6 +131,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+)
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -133,3 +159,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+SITE_ID = 1

@@ -5,6 +5,10 @@ from stakeholder.forms import ClusterForm, EntityForm, StakeholderForm, Assumpti
 
 
 
+def mindel_home(request):
+    return render(request, 'mindel_home.html')
+        
+
 def stakeholder_splash(request):
     stakeholder_mapform = Stakeholder_MapForm()
     stakeholders = Stakeholder.objects.all()

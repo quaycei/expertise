@@ -89,13 +89,21 @@ box-shadow: 0px 0px 46px -2px rgba(0,0,0,0.49);}
 
 
 <!-- BODY -->
-
-<nav class="navbar-fixed-top animated zoomInDown">
+{% if user.is_authenticated %}
+<nav class="navbar-fixed-top animated slideInDown">
 	<a href="{% url 'stakeholder_splash' %}">
 		<img src="https://www.hermitagemuseum.org/statictest/img/btnIBM.png" class="img-responsive" style="height: 20px; margin-bottom: 5px; display: inline; margin-right: 15px;">
 		<h4 class="col-white inline">Design Thinking Platform</h4>
 	</a>
+	<h4 style="float:right; font-weight: 700; display: inline-block;">
+	{% if user.is_authenticated %}
+	{{ request.user.username }}
+	{% else %}
+	<a href="{% url 'account_login' %}">Sign in</a>
+	{% endif %}</h4>
+
 </nav>
+{% endif %}
 <body>
 {% block content %}
 {% endblock %}

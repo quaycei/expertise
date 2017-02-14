@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+.header {
+	padding: 80px;
+	padding-top: 50px;
+	color: white;
+	background-color: white;
+	color: #121212;
+}
+
+.btn-header {
+	background-color: white;
+	border-radius: 3px;
+	color: #121212;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 8px;
+
+}
+
+.section-black {
+	background-color: #121212;
+	color: white;
+	padding: 60px;
+	width:: 100%;
+	min-height: 200px;
+}
+.md-header {
+	font-size: 3em;
+
+}
+
+
+a {color: #FF8F00;}
+</style>
+
+
+
+
+
+<div class="header animated slideInLeft" >
+<div class="row">
+<div class="col-md-7" >
+<img src="https://68.media.tumblr.com/67a253c3a15c67139da4ebc8eb7f65d4/tumblr_olcjndbHKp1u8c9zqo2_540.png" class="img-responsive">
+</div>
+<div class="col-md-5" style="padding-top: 90px;">
+
+
+	<h1><b>MINDEL</b></h1>
+	<h3 ><b >Human-centered outcomes at speed and scale</b><br /><br />At IBM, we design as the intent behind an outcome. We use design thinking to form intent by developing understanding and empathy for our users.</h3>
+
+	<br />
+	{% if stakeholder_map.website %}{{ stakeholder_map.website }}<br />{% endif %}
+	<br /><br />
+</div>
+
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.5s;" href="#modal-stakeholder-map-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header">play_circle_outline</i><br />
+		<b>Start Map</b>
+	</a>
+
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.4s;" href="#modal-stakeholder-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">person_add</i><br />
+		<b>Stakeholder</b>
+	</a>
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.3s;" href="#modal-assumption-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header">playlist_add</i><br />
+		<b>Assumption</b>
+	</a>
+
+	<a class="btn btn-header  animated slideInLeft" style="animation-delay: 0.2s;" href="#modal-cluster-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">bubble_chart</i><br />
+		<b>Cluster</b>
+	</a>
+
+	<a class="btn btn-header animated slideInLeft" style="animation-delay: 0.1s;" href="#modal-entity-create" role="button" class="btn" data-toggle="modal">
+		<i class="material-icons md-header ">more</i><br />
+		<b>Entity</b>
+	</a>
+	</div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="section-black">
+Welcome to this app
+
+</div>
+</div>
+{% include 'stakeholder_map/kit/list.html' %}
+
+
+
+
+
+
+
+
+{% endblock %}

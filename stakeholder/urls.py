@@ -1,7 +1,9 @@
 from django.conf.urls import url
 from stakeholder import views
 
+
 urlpatterns = [
+    url(r'^mindel', views.mindel_home, name='mindel_home'),
     url(r'^stakeholder', views.stakeholder_splash, name='stakeholder_splash'),
 
     url(r'^list', views.stakeholder_list, name='stakeholder_list'),

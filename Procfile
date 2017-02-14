@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn expertise.wsgi --log-file -
+web: gunicorn expertise.wsgi --log-file -
