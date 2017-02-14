@@ -96,18 +96,12 @@ SLACK_PIPELINES = [
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES =  {'default' : dj_database_url.config(
+                default='postgres://expertise:expertiseadmin@localhost:5432/timsle')}
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'expertise',
-#        'USER': 'postgres',
-#        'PASSWORD': 'expertiseadmin',
-#        'HOST': '127.0.0.1',
-#        'PORT': '5432',
-#    }
-#}
+
+# Enable Connection Pooling
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 
 # Password validation
