@@ -97,7 +97,7 @@ SLACK_PIPELINES = [
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES =  {'default' : dj_database_url.config(
-                default='postgres://expertise:expertiseadmin@localhost:5432/timsle')}
+                default='postgres://kmjofdaopzcfnn:27e97d5a74ba38c59b820678698e1a05e294e3a394f3096efa093b03d2630fe9@ec2-204-236-218-242.compute-1.amazonaws.com:5432/d733hn7smg5h4l')}
 
 
 # Enable Connection Pooling
