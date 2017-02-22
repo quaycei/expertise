@@ -1,6 +1,67 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load widget_tweaks %}
 
-{% include 'assumption/kit/create.html' %}
+<form action="{% url 'assumption_create' %}" method="post">
+{% csrf_token %}
 
-{% endblock %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal fade" id="modal-assumption-create" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								×
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								{% if assumption.slug %}Edit {{ assumption.name }}
+{% else %}Add an Assumption{% endif %}
+							</h4>
+						</div>
+						<div class="modal-body">
+						<div class="row">
+<div class="col-md-6">
+
+
+{% render_field assumptionform.name placeholder="Name" %}<br />
+{% render_field assumptionform.tagline placeholder="Tagline" %}<br />
+{% if assumption.slug%}{{assumption.slug}}{%else%}
+{% render_field assumptionform.slug placeholder="Hashtag" %}{% endif %}<br />
+{% render_field assumptionform.description placeholder="Description" class+="form-description" %}<br />
+Proven: {% render_field assumptionform.proven %}<br />
+</div>
+<div class="col-md-6">
+<b>Assumption for Stakeholders</b><br />
+{% render_field assumptionform.stakeholders class+="form-description" %}<br /><br />
+
+<b>Assumption for Entities</b><br />
+{% render_field assumptionform.entitys class+="form-description" %}<br /><br />
+
+<b>Add to Clusters</b><br />
+{% render_field assumptionform.clusters class+="form-description" %}<br /><br />
+
+
+<br />
+
+
+						</div></div>
+						<div class="modal-footer">
+							 
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button> 
+							<input type="submit" value="Save" class="btn btn-primary"/>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+</form>

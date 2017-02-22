@@ -1,0 +1,78 @@
+{% extends 'library.html' %}
+{% load librarytags %}
+
+
+{% block content %}
+
+
+
+
+
+
+<div class="container-fluid animated slideInDown">
+	<div class="row">
+		<div class="header">
+
+
+			<p style="font-size: 2.3em;"><b>{{library.name}}</b></p>
+			<p style="font-size:1.3em;">Collections of software or data usually reflecting a specific theme or application.</p>
+			<br />
+
+			<div class="animated slideInLeft" style="animation-delay: 0.3s;">
+				<a href="{% url 'project_create' library_slug=library.slug %}" class="btn btn-header">
+					<i class="material-icons">line_style</i><br />
+					<b>Project</b>
+				</a>
+
+				<a href="{% url 'project_create' library_slug=library.slug %}" class="btn btn-header">
+					<i class="material-icons">access_time</i><br />
+					<b>Session</b>
+				</a>
+
+				<a href="{% url 'project_create' library_slug=library.slug %}" class="btn btn-header">
+					<i class="material-icons">cake</i><br />
+					<b>Milestone</b>
+				</a>
+
+
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+<div class="col-md-3 animated slideInLeft">
+<div class="row">
+<div class="row">
+
+<div style="background-color: rgba(0,0,0,0.8); width: 100%; min-height: 800px;">
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+	
+
+
+
+				<div class="col-md-9 animated slideInUp">
+				<div class="padding-20">
+				<div class="spacer-30"></div>
+				{% include 'project/kit/project_list.html' %}
+</div>
+				</div>
+
+
+
+
+
+
+	{% endblock %}
+
+
+
+

@@ -1,74 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-fluid " style="padding:0;">
-<div class="col-md-9 animated slideInLeft" style="padding:0;">
-<div class="row">
+	<h1><b>{{ stakeholder_map.name }}</b></h1>
+	<h4><b>{{ stakeholder_map.tagline }}</b></h4>
 
-{% include 'stakeholder_map/kit/read.html' %}
-<div style="z-index: -999;">
-{% include 'stakeholder/kit/list.html' %}
-<br />
-{% include 'assumption/kit/list.html' %}
-<br />
-{% include 'entity/kit/list.html' %}
-</div>
-</div>
-</div>
-<div class="col-md-3 shadow animated slideInRight" style=" background-color: #253035; right: 0; top:0; bottom: 0; padding-top: 90px; z-index: 10; min-height: 1300px;" >
+	/s/smap/{{ stakeholder_map.slug }}<br />
+	<br />
+	{% if stakeholder_map.website %}{{ stakeholder_map.website }}<br />{% endif %}
+	<br /><br />
 
-<style>
-.stakeholder { background-color: rgba(255,255,255,0.4); height: auto;}
-.stakeholder:hover { background-color: rgba(255,255,255,1); transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; }
+{% include 'entity/create.html' %}
 
-.stakeholder > a {color: rgba(0,0,0,0.6);}
-.stakeholder:hover > a {color: {{stakeholder_map.hex_color}};}
-</style>
-<div class="col-xs-12">
-<b class=" caps-title col-white animated sliInRight">Entities</b><br /><br />
-</div>
-					{% for entity in entitys %}
-					<div class="col-md-12">
-						<div class="stakeholder animated slideInRight">
-							<a href="{% url 'entity_read' entity_slug=entity.slug %}"><b style="font-size: 1.5em;">{{ entity.name }}</b></a><br />
-							<i>{{ entity.description }}</i><br />
-						
-						</div>
-					</div>
-					{% endfor %}
-
-<div class="col-xs-12">
-<b class="caps-title col-white animated slideInRight">Stakeholders</b><br /><br />
-</div>
-					{% for stakeholder in stakeholders %}
-					<div class="col-md-12">
-						<div class="stakeholder animated slideInRight">
-							<a href="{% url 'stakeholder_read' stakeholder_slug=stakeholder.slug %}"><b style="font-size: 1.5em;">{{ stakeholder.name }}</b></a><br />
-							<i>{{ stakeholder.entity}}</i><br />
-						
-						</div>
-					</div>
-					{% endfor %}<br />
-
-<div class="col-xs-12">
-<b class=" caps-title col-white animated slideInRight">Assumptions</b><br /><br />
-</div>
-
-					{% for assumption in assumptions %}
-					<div class="col-md-12">
-						<div class="stakeholder animated slideInRight">
-							<a href="{% url 'assumption_read' assumption_slug=assumption.slug %}"><b style="font-size: 1.5em;">{{ assumption.name }}</b></a><br />
-							<i>{{ assumption.tagline }}</i><br />
-						
-						</div>
-					</div>
-					{% endfor %}
 </div>
 </div>
 
+{% for entity in entitys %}
+{{entity.name}}<br /><br />
+{% endfor %}
+<br /><br />
 
-{% include 'stakeholder_map/kit/create.html' %}
-{% include 'stakeholder/kit/create.html' %}
-{% include 'assumption/kit/create.html' %}
-{% include 'cluster/kit/create.html' %}
-{% include 'entity/kit/create.html' %}
+
 {% endblock %}

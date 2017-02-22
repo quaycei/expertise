@@ -1,0 +1,24 @@
+
+{% load librarytags %}
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<div class="modal fade" id="{{object.slug}}-readmodal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						{% library_read %}
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

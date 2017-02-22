@@ -1,0 +1,9 @@
+
+
+{% for project in projects %}
+{{ project.name }}<br />
+{% empty %}
+There are no projects yet!
+{% endfor %}
+
+<br /><br />

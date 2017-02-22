@@ -1,7 +1,16 @@
-{% extends 'base.html' %}
+<h1>{{ assumption.name }}</h1><br />
+{% if assumption.tagline %}{{ assumption.tagline }}<br />{% endif %}
 
-{% block content %}
+<i>/{{ assumption.slug }}</i><br />
+{% if assumption.website %}{{ assumption.website}}<br />{% endif %}<br />
 
-{% include 'assumption/kit/read.html' %}
+{% if assumption.description %}<b>ABOUT</b><br />{{ assumption.description}}<br /><br />{% endif %}
 
-{% endblock %}
+<b>CONTACT</b><br />
+{% if assumption.email_address %}{{ assumption.email_address }}<br />{% endif %}
+{% if assumption.phone_number %}{{ assumption.phone_number}}<br />{% endif %}
+
+
+
+<br />
+<a href="{% url 'assumption_update' assumption_slug=assumption.slug %}">Update assumption</a>

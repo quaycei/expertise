@@ -84,7 +84,8 @@ def entity_list(request):
     return render(request, 'entity/list.html', {'entitys':entitys})
 
 
-def entity_create(request):
+def entity_create(request, stakeholder_map_slug):
+    stakeholder_map = Stakeholder_Map.objects.get(slug=stakeholder_map_slug)
     entityform = EntityForm()
     
     if request.method == 'POST':
@@ -92,16 +93,19 @@ def entity_create(request):
         if entityform.is_valid():
             entity = entityform.save(commit=False)
             entity.creator = request.user
+            entity.stakeholder_map = stakeholder_map
             entity.save()
             entityform.save_m2m()
-            return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
+            return redirect('stakeholder_map_list')
     
-    return render(request, 'entity/create.html',{
+    return render(request, 'entity/create.html',{'stakeholder_map':stakeholder_map,
             'entityform':entityform,
+            
         })
 
 
-def entity_update(request, entity_slug):
+def entity_update(request, stakeholder_map_slug, entity_slug):
+    stakeholder_map = Stakeholder_Map.objects.get(slug=stakeholder_map_slug)
     entity = Entity.objects.get(slug=entity_slug)
     entityform = EntityForm(instance=entity)
     
@@ -112,15 +116,16 @@ def entity_update(request, entity_slug):
             return redirect(stakeholder_splash)
     
     return render(request, 'entity/create.html',{
-            'entityform':entityform, 'entity':entity
+            'entityform':entityform, 'entity':entity, 'stakeholder_map':stakeholder_map
         })
 
 
-def entity_read(request, entity_slug):
+def entity_read(request, stakeholder_map_slug, entity_slug):
+    stakeholder_map = Stakeholder_Map.objects.get(slug=stakeholder_map_slug)
     entity = Entity.objects.get(slug=entity_slug)
 
     return render(request, 'entity/read.html', {
-            'entity':entity
+            'stakeholder_map':stakeholder_map, 'entity':entity
         })
 
 
@@ -147,7 +152,7 @@ def stakeholder_create(request):
             return redirect(stakeholder_map_read, {'stakeholder_map':stakeholder_map})
     
     return render(request, 'stakeholder/create.html',{
-            'stakeholderform':stakeholderform
+            'stakeholderform':stakeholderform,
         })
 
 
@@ -262,7 +267,7 @@ def stakeholder_map_update(request, stakeholder_map_slug):
 
 def stakeholder_map_read(request, stakeholder_map_slug):
     stakeholder_map = Stakeholder_Map.objects.get(slug=stakeholder_map_slug)
-    stakeholders = Stakeholder.objects.filter(stakeholder_map=stakeholder_map)
+    stakeholders = Stakeholder.objects.all()
     entitys = Entity.objects.filter(stakeholder_map=stakeholder_map)
     assumptions = Assumption.objects.filter(stakeholder_map=stakeholder_map)
     clusters = Cluster.objects.filter(stakeholder_map=stakeholder_map)

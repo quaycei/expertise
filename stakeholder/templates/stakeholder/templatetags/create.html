@@ -1,0 +1,24 @@
+{% load widget_tweaks %}
+
+<form action="{% url 'stakeholder_create' stakeholder_map_slug=stakeholder_map.slug %}" method="post">
+	{% csrf_token %}
+
+
+	{% render_field stakeholderform.name placeholder="Name" %}<br />
+	{% if stakeholder.slug%}{{stakeholder.slug}}{%else%}
+	{% render_field stakeholderform.slug placeholder="Hashtag" %}{% endif %}<br />
+	{% render_field stakeholderform.entity class+="form-description" %}<br />
+	{% render_field stakeholderform.tagline placeholder="Tagline" %}<br />
+	{% render_field stakeholderform.email_address placeholder="Email Address" %}<br />
+	{% render_field stakeholderform.website placeholder="Website" %}<br />
+	{% render_field stakeholderform.phone_number placeholder="Phone Number" %}<br />
+	
+
+	{% render_field stakeholderform.description placeholder="Description" class+="form-description"%}<br />
+	<br />
+
+	<b>Add to Clusters</b><br />
+	{% render_field stakeholderform.clusters class+="form-description" %}<br /><br />
+
+	<input type="submit" value="Save" class="btn btn-primary"/>
+	

@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import dj_database_url      #heroku
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,7 +49,9 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'bootstrap3',
     'study',
+    'cloudinary',
     'stakeholder',
+    'library',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -148,6 +154,15 @@ USE_TZ = True
 
 SITE_ID = 1
 
+
+
+cloudinary.config( 
+  cloud_name = "sample", 
+  api_key = "874837483274837", 
+  api_secret = "a676b67565c6767a6767d6767f676fe1" 
+)
+
+	
 
 
 # Static files (CSS, JavaScript, Images)

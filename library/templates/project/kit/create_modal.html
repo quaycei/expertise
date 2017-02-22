@@ -1,0 +1,39 @@
+
+{% load librarytags %}
+
+<style>
+
+.btn-header {
+	background-color: rgba(0,0,0,0.3);
+	color: white;
+	border-radius: 4px;
+	text-align: center;
+}
+.btn-header .material-icons { 
+font-size: 3em; }
+</style>
+
+<a id="createproject-{{library.slug}}" href="#createproject-{{library.slug}}" role="button" class="btn btn-header" data-toggle="modal">
+<i class="material-icons">line_style</i>
+<b>NEW PROJECT</b>
+</a>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<div class="modal fade" id="createproject-{{library.slug}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						{% project_create library_slug=library.slug%}
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+

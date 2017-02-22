@@ -1,6 +1,62 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load widget_tweaks %}
 
-{% include 'stakeholder/kit/create.html' %}
+<form action="{% url 'stakeholder_create' %}" method="post">
+{% csrf_token %}
 
-{% endblock %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal fade" id="modal-stakeholder-create" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								×
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								{% if stakeholder.slug %}Edit {{ stakeholder.name }} 
+{% else %}Add a Stakeholder{% endif %} {{stakeholder_map.name}}
+							</h4>
+						</div>
+						<div class="modal-body">
+						<div class="row">
+<div class="col-md-6">
+{% render_field stakeholderform.name placeholder="Name" %}<br />
+{% if stakeholder.slug%}{{stakeholder.slug}}{%else%}
+{% render_field stakeholderform.slug placeholder="Hashtag" %}{% endif %}<br />
+{% render_field stakeholderform.entity class+="form-description" %}<br />
+{% render_field stakeholderform.tagline placeholder="Tagline" %}<br />
+{% render_field stakeholderform.email_address placeholder="Email Address" %}<br />
+{% render_field stakeholderform.website placeholder="Website" %}<br />
+{% render_field stakeholderform.phone_number placeholder="Phone Number" %}<br />
+</div>
+<div class="col-md-6" style="padding-left:0;">
+
+{% render_field stakeholderform.description placeholder="Description" class+="form-description"%}<br />
+<br />
+
+<b>Add to Clusters</b><br />
+{% render_field stakeholderform.clusters class+="form-description" %}<br /><br />
+
+</div>
+
+						</div>
+						<div class="modal-footer">
+							 
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button> 
+							<input type="submit" value="Save" class="btn btn-primary"/>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+</form>

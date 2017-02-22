@@ -1,0 +1,46 @@
+{% load cloudinary %}  
+
+
+<div class="row">
+<div class="col-xs-12">
+<img src="http://www.experienceperception.com/wp-content/uploads/2016/03/06_Math-1024x576.jpg" class="img-responsive cover" style="height: 230px; width: 100%;">
+
+
+
+{% if library.name %}
+<div class="padding-20">
+<b class="em-13">{{ library.name }}</b>
+</div>
+<hr>
+{% endif %}
+
+<div class="padding-20">
+
+
+{% if library.tagline %}
+<h4><i>{{library.tagline}}</i></h4>
+<br />
+{% endif %}
+
+{% if library.slug %}
+{{library.slug}}
+<br /><br />
+{% endif %}
+
+{% if library.website %}
+{{library.website}}
+<br /><br />
+{% endif %}
+
+
+{% if library.description %}
+<b>ABOUT</b><br />
+{{library.description}}
+<br /><br />
+{% endif %}
+
+
+
+</div>
+</div>
+</div>

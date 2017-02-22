@@ -1,7 +1,11 @@
-{% extends 'base.html' %}
+<h2>Cluster List</h2>
 
-{% block content %}
+{% for cluster in clusters %}
+<a href="{% url 'cluster_read' cluster_slug=cluster.slug %}"><b>{{ cluster.name }}</b></a><br />
+{% if cluster.tagline %}{{ cluster.tagline }}<br />{% endif %}
+{% if cluster.description %}{{ cluster.description }}<br />{% endif %}
+<br />
+{% endfor %}
 
-{% include 'cluster/kit/list.html' %}
-
-{% endblock %}
+<a href="{% url 'cluster_create' %}">Add Cluster</a>
+<br /><br />

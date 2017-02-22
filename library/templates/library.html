@@ -1,0 +1,155 @@
+{% load librarytags %}
+{% load widget_tweaks %}
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+<!-- Google Web Icon Font -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+</head>
+
+
+<!-- CSS -->
+<style>
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+* {font-family: 'Karla', sans-serif;}
+
+html, body {
+
+	background-color: rgba(0,0,0,0.08);
+}
+
+
+.font-space {font-family: 'Space Mono', monospace;}
+
+input[type="text"] { 
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #c7c7c7;
+	width: 90%;
+
+
+}
+
+.form-description { 
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #c7c7c7;
+	width: 90%;
+
+
+}
+
+.cover {object-fit: cover;}
+
+.card-body {
+		background-color: white;
+		margin-bottom: 20px;
+	}
+
+.card-tray {
+		padding: 10px;
+		background-color: #ABB2B9;
+
+	}
+
+
+
+
+.btn-header {
+	background-color: rgba(0,0,0,0.3);
+	color: white;
+	border-radius: 4px;
+	text-align: center;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.btn-header .material-icons { 
+font-size: 3em; }
+
+
+
+
+a { text-decoration: none; color: inherit;}
+a:hover { text-decoration: none; color: inherit;}
+.em-13 {font-size: 1.3em;}
+.md-01em {font-size: 1em;}
+.lift-20 {margin-top: -20px;}
+.inline {display: inline;}
+.padding-20 { padding: 20px; }
+.spacer-30 {width: 100; display: block;height:30px;}
+
+
+.col-white { color: white; }
+hr { 
+	border-color: rgba(0,0,0,0.3);
+	margin-top: 0px;
+	margin-bottom:5px; }
+
+.header {
+	background-color: #3F51B5;
+	background-color: {{library.hex_color}};
+	padding: 60px;
+	padding-bottom: 40px;
+	width: 100%;
+	color: white;
+}
+.bg-black-rgba-30 {background-color: #3F51B5; background-color: rgba(0,0,0,0.3); width: 100%; padding: 15px; padding-left: 30px; padding-right: 30px;}
+
+
+nav {
+color: white;
+}
+
+
+.bg-brand { background-color: #3F51B5; background-color: {{library.hex_color}}; }
+.col-brand { color: #3F51B5; color: {{library.hex_color}}; }
+</style>
+
+
+<nav class="navbar-fixed-top bg-brand animated slideInDown">
+<div class="bg-black-rgba-30">
+<div class="row">
+<div class="col-xs-12">
+
+ <div style="background-color: white; padding: 4px; margin-left: 10px; margin-right: 10px; border-radius: 80px; font-weight: 700; width: 25px; text-align: center; font-size: 1.3em;" class="col-brand inline">-?-</div> <b class="font-space em-13 inline"> MINDEL</b>
+
+</div>
+</div>
+</div>
+</nav>
+<br /><br />
+
+{% block content %}
+{% endblock %}
+
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>

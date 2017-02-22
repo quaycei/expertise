@@ -1,7 +1,6 @@
-{% extends 'base.html' %}
+<b>{{ entity.name }}</b><br /><br />
 
-{% block content %}
 
-{% include 'entity/kit/read.html' %}
-
-{% endblock %}
+{{ entity.slug }}<br />
+{% if entity.website %}{{ entity.website }}<br />{% endif %}
+<a href="{% url 'entity_update' entity_slug=entity.slug stakeholder_map_slug=stakeholder_map.slug%}">Update Entity</a>

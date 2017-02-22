@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^slack/', include('django_slack_oauth.urls')),
+    url(r'^l/', include('library.urls')), 
     url(r'^s/', include('stakeholder.urls')),
 
 ]
