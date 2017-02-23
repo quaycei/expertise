@@ -1,0 +1,49 @@
+{% extends 'library.html' %}
+{% load librarytags %}
+{% load announcetags %}
+
+
+{% block content %}
+
+
+
+
+
+
+<div class="container-fluid animated slideInDown" id="map">
+	<div class="row">
+		<div class="header shadow">
+
+
+			<p style="font-size: 2.3em;"><b>{{hopefear_map.name}}</b></p>
+			{% if hopefear_map.tagline %}<p style="font-size:1.3em;">{{hopefear_map.tagline }}</p>{% endif %}
+			<br />
+
+		</div>
+	</div>
+</div>
+
+<div class="spacer-30"></div>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+{% for thought in thoughts %}
+{% if thought.name %}{{ thought.name }}{% endif %}<br /><br />
+
+{% empty %}
+New thoughts will appear shortly 
+{% endfor %}
+
+</div>
+</div>
+	
+
+
+
+	{% endblock %}
+
+
+
+

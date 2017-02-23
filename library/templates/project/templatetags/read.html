@@ -1,46 +1,7 @@
-{% load cloudinary %}  
 
+{% for object in hopefear_maps %}
 
-<div class="row">
-<div class="col-xs-12">
-<img src="http://www.experienceperception.com/wp-content/uploads/2016/03/06_Math-1024x576.jpg" class="img-responsive cover" style="height: 230px; width: 100%;">
-
-
-
-{% if project.name %}
-<div class="padding-20">
-<b class="em-13">{{ project.name }}</b>
-</div>
-<hr>
-{% endif %}
-
-<div class="padding-20">
-
-
-{% if project.tagline %}
-<h4><i>{{project.tagline}}</i></h4>
-<br />
-{% endif %}
-
-{% if project.slug %}
-{{project.slug}}
-<br /><br />
-{% endif %}
-
-{% if project.website %}
-{{project.website}}
-<br /><br />
-{% endif %}
-
-
-{% if project.description %}
-<b>ABOUT</b><br />
-{{project.description}}
-<br /><br />
-{% endif %}
-
-
-
-</div>
-</div>
-</div>
+<a href="{% url 'hopefear_map_page' hopefear_map_slug=object.slug %}" class="btn btn-default">{{object.name}}</a>
+{% empty %}
+There are no Hopes & Fears Maps yet.
+{% endfor %}

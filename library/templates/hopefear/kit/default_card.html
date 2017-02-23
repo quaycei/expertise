@@ -1,0 +1,38 @@
+{% load librarytags %}
+
+
+<a id="modal-{{object.slug}}" href="#modal-container-{{object.slug}}" role="button" data-toggle="modal">
+	<div class="card-body">
+		{% if object.name %}
+		<div class="padding-20">
+			<b class="em-13">{{ object.name }}</b>
+		</div>
+		<hr>
+		{% endif %}
+		<div class="padding-20">
+			{% if object.tagline %}{{object.tagline}}<br />{% endif %}
+
+			{% if object.slug %}{{object.slug}}<br />{% endif %}
+
+			{% if object.website %}{{object.website}}<br />{% endif %}
+		</div>
+	</div>
+</a>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="modal fade" id="modal-container-{{object.slug}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					{% hopefear_map_read hopefear_map_slug=object.slug%}
+
+					<div class="card-tray">
+						<a href="{% url 'hopefear_map_page' hopefear_map_slug=object.slug%}" class="btn btn-default">Open</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

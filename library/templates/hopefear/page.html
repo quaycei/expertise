@@ -1,0 +1,174 @@
+{% extends 'library.html' %}
+{% load hopefeartags %}
+
+{% block content %}
+
+<style>
+html , body { color: white; }
+
+.carousel-cell {width: 100%;}
+
+/* position dots up a bit */
+.flickity-page-dots {
+  bottom: -22px;
+}
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 4px;
+  width: 40px;
+  margin: 0;
+  border-radius: 0;
+}
+
+
+/* smaller, dark, rounded square */
+.flickity-prev-next-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  background: #333;
+}
+.flickity-prev-next-button:hover {
+  background: #F90;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white;
+}
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+
+nav {display: none;}
+</style>
+
+
+
+
+<div class="container-fluid animated slideInUp bg-brand" style="min-height: 1000px; margin-top: -40px;">
+<div class="row">
+
+
+
+
+
+
+
+
+
+<div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "adaptiveHeight": true }'>
+
+<div class="carousel-cell">
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+
+<div style="margin-left: auto; margin-right:auto; text-align: auto;">
+<div class="animated fadeInUp">
+<div style="padding: 30px; text-align: center;">
+<i class="material-icons " style="font-size: 10em;">sentiment_very_satisfied</i><br /><br />
+<div class="animated fadeInUp" style="animation-delay: 0.3s;">
+<b>HOPES & FEARS </b>
+<p style="font-size: 2.3em;"><b>{{hopefear_map.name}}</b></p>
+
+<div class="spacer-30"></div>
+<div class="col-md-8 col-md-offset-2" style="text-align: left">
+<h4><b>INTRODUCTION</b></h4>
+<h4>When you're starting a project, kicking-off a workshop, or bringing in new team members, this activity helps you get to know each other, expose aspirations and concerns, and prepare everyone to start.</h4><br />
+
+
+<div class="spacer-30"></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="carousel-cell">
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+
+<div style="margin-left: auto; margin-right:auto; text-align: auto;">
+<div class="animated fadeInUp">
+<div style="padding: 30px; text-align: center;">
+<i class="material-icons" style="font-size: 10em;">wifi</i><br /><br />
+<div class="animated fadeInUp" style="animation-delay: 0.3s;">
+<b>HOPES & FEARS </b>
+<p style="font-size: 2.3em;"><b>Connect your Remote</b></p>
+
+<div class="spacer-30"></div>
+<h4><b>Navigate to the following URL on a portable device:</b></h4>
+<input type="text" value="http://www.mindel.herokuapp.com{% url 'hopefear_map_remote' hopefear_map_slug=hopefear_map.slug %}" style="font-size: 1.3em; padding: 20px; max-width: 550px; color: black;"/>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="carousel-cell">
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+
+<div style="margin-left: auto; margin-right:auto; text-align: auto;">
+<div class="animated fadeInUp">
+<div style="padding: 30px; text-align: center;">
+<i class="material-icons " style="font-size: 10em;">important_devices</i><br /><br />
+<div class="animated fadeInUp" style="animation-delay: 0.3s;">
+<b>HOPES & FEARS </b>
+<p style="font-size: 2.3em;"><b>How it Works</b></p>
+
+<div class="spacer-30"></div>
+<div class="col-md-8 col-md-offset-2" style="text-align: left;">
+<h4 style="line-height: 1.6em;"><b>Using your remote, add your Hopes and Fears to this map.</b><br />
+If you have a thought, but can't decide if it's a Hope or a Fear, mark it as "Undeclared." <br />
+Taglines, Descriptions, and other fields are optional.</h4>
+
+</h4><br />
+
+<div class="col-md-6">
+<h1><b>HOPES</b></h1><br />
+<h4><b>GET EXCITED</b></h4>
+<h4>What parts of this project make you most excited?</h4><br />
+
+<h4><b>GET OPTIMISTIC</b></h4>
+<h4>What could go really well?</h4><br />
+</div>
+
+
+
+<div class="col-md-6" style="border-left: 1px solid white;">
+<div style="padding-left:15px;">
+<h1><b>FEARS</b></h1><br />
+<h4><b>GET NERVOUS</b></h4>
+<h4>What has potential to go wrong?</h4><br />
+
+<h4><b>GET SKEPTICAL</b></h4>
+<h4>If you aren't careful, what might not work?</h4><br />
+</div>
+<div class="spacer-30"></div>
+<div class="spacer-30"></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}

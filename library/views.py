@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.core.urlresolvers import reverse
 from library.models import Library, Project
 from library.forms import LibraryForm, ProjectForm
+from hopefear.models import Hopefear_Map, Thought
 
 
 
@@ -13,12 +14,12 @@ def library_list(request):
 
 def library_page(request, library_slug):
     library = Library.objects.get(slug=library_slug)
-    projects = Project.objects.filter(library=library)
+    projects = Project.objects.filter(library__slug=library_slug)
 
     return render(request, 'library/page.html',{
         'library':library,
         'projects':projects,
-         })
+       })
        
 
 def library_create(request):

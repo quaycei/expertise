@@ -2,6 +2,10 @@
 {% load widget_tweaks %}
 
 <head>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <!-- Latest compiled and minified CSS -->
@@ -11,6 +15,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
 
 <!-- Google Web Icon Font -->
@@ -87,6 +92,8 @@ font-size: 3em; }
 
 a { text-decoration: none; color: inherit;}
 a:hover { text-decoration: none; color: inherit;}
+a:active { text-decoration: none; color: inherit;}
+
 .em-13 {font-size: 1.3em;}
 .md-01em {font-size: 1em;}
 .lift-20 {margin-top: -20px;}
@@ -104,6 +111,7 @@ hr {
 .header {
 	background-color: #3F51B5;
 	background-color: {{library.hex_color}};
+	background-color: {{hopefear_map.hex_color}};
 	padding: 60px;
 	padding-bottom: 40px;
 	width: 100%;
@@ -116,13 +124,35 @@ nav {
 color: white;
 }
 
+.shadow {-webkit-box-shadow: 0px 0px 28px 2px rgba(0,0,0,0.47);
+-moz-box-shadow: 0px 0px 28px 2px rgba(0,0,0,0.47);
+box-shadow: 0px 0px 28px 2px rgba(0,0,0,0.47);}
 
-.bg-brand { background-color: #3F51B5; background-color: {{library.hex_color}}; }
-.col-brand { color: #3F51B5; color: {{library.hex_color}}; }
+
+.bg-brand { 
+	background-color: #3F51B5;
+	background-color: {{library.hex_color}};
+	background-color: {{hopefear_map.hex_color}};
+}
+
+.col-brand { 
+	color: #3F51B5; 
+	color: {{library.hex_color}};
+	color: {{hopefear_map.hex_color}};
+}
+
+.header {
+	padding: 60px;
+	padding-bottom: 40px;
+	width: 100%;
+	color: white;
+}
+
+
 </style>
 
 
-<nav class="navbar-fixed-top bg-brand animated slideInDown">
+<nav class="navbar-fixed-top bg-brand animated slideInDown shadow">
 <div class="bg-black-rgba-30">
 <div class="row">
 <div class="col-xs-12">
@@ -135,6 +165,27 @@ color: white;
 </nav>
 <br /><br />
 
+{% if library.slug %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<div class="modal fade" id="createproject-{{library.slug}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						{% project_create library_slug=library.slug%}
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+{% endif %}
+
+
 {% block content %}
 {% endblock %}
 
@@ -142,14 +193,14 @@ color: white;
 
 
 
-
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
 
 </body>

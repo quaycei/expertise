@@ -1,0 +1,38 @@
+
+
+<div class="col-md-12">
+	<b>PROJECTS</b><br /><br />
+</div>
+
+<div class="col-md-12">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel-group" id="panel-{{object.hopefear_map.slug}}-{{object.slug}}">
+					{% for object in thoughts %}
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a class="panel-title" data-toggle="collapse" data-parent="#panel-{{object.hopefear_map.slug}}-{{object.slug}}" href="#panel-element--{{object.slug}}">
+
+
+								<div class="padding-20">
+									<i class="inline material-icons md-01em" style="padding: 0; margin-top: 5px;">work</i>&nbsp &nbsp
+									<b>{% if object.name %}{{object.name}}{% else %}Project {{forloop.counter}}{% endif %}</b>
+									{% if object.tagline %}<p class="inline">&nbsp &nbsp {{object.tagline}}</p>{% endif %}
+								</div>
+
+
+							</a>
+						</div>
+						<div id="panel-element--{{object.slug}}" class="panel-collapse collapse">
+							<div class="panel-body">
+								Anim pariatur cliche...
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

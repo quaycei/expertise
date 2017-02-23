@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^slack/', include('django_slack_oauth.urls')),
     url(r'^l/', include('library.urls')), 
     url(r'^s/', include('stakeholder.urls')),
+    url(r'^hf/', include('hopefear.urls')),
 
 ]

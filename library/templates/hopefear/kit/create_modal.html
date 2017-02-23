@@ -1,0 +1,35 @@
+
+{% load librarytags %}
+
+<style>
+
+.btn-header {
+	background-color: rgba(0,0,0,0.3);
+	color: white;
+	border-radius: 4px;
+	text-align: center;
+}
+.btn-header .material-icons { 
+font-size: 3em; }
+</style>
+
+<a id="createthought-{{hopefear_map.slug}}" href="#createthought-{{hopefear_map.slug}}" role="button" class="btn btn-header" data-toggle="modal">
+<i class="material-icons">line_style</i>
+<b>NEW THOUGHT</b>
+</a>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">	
+			<div class="modal fade" id="createthought-{{hopefear_map.slug}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						{% thought_create hopefear_map_slug=hopefear_map.slug%}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

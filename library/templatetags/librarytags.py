@@ -4,6 +4,7 @@ from django.http import HttpResponseForbidden
 from django.core.urlresolvers import reverse
 from library.models import Library, Project
 from library.forms import LibraryForm, ProjectForm
+from hopefear.models import Hopefear_Map
 
 
 
@@ -55,12 +56,14 @@ def project_create(library_slug):
 
 
 @register.inclusion_tag('project/templatetags/read.html')
-def project_read(library_slug, project_slug):
-    library = Library.objects.get(slug=library_slug)
+def project_read(project_slug):
     project = Project.objects.get(slug=project_slug)
+    hopefear_maps = Hopefear_Map.objects.filter(project=project)
+
+
 
     return {
-            'library':library,
             'project':project,
+            'hopefear_maps':hopefear_maps,
            }
 
