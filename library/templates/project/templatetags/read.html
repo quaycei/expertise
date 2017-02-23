@@ -1,7 +1,43 @@
+{% load hopefeartags %}
+
 
 {% for object in hopefear_maps %}
 
 <a href="{% url 'hopefear_map_page' hopefear_map_slug=object.slug %}" class="btn btn-default">{{object.name}}</a>
 {% empty %}
-There are no Hopes & Fears Maps yet.
+This project has no Maps yet.
+<br />
 {% endfor %}
+<br />
+<hr>
+<br />
+<b> CREATE A MAP </b><br /><br />
+<a id="createproject-{{object.slug}}" href="#createproject-{{object.slug}}" role="button" class="btn btn-header" style="background-color: {{object.hex_color}};" data-toggle="modal">
+<i class="material-icons">sentiment_very_satisfied</i><br />
+<b>Hopes & Fears</b>
+</a>
+
+
+<a id="createhopefear-{{object.slug}}" href="#createhopefear-{{object.slug}}" role="button" class="btn btn-header" style="background-color: {{object.hex_color}};" data-toggle="modal">
+<i class="material-icons">person_add</i><br />
+<b>Stakeholders</b>
+</a>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<div class="modal fade" id="createhopefear-{{object.slug}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						{% hopefear_map_create %}
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
